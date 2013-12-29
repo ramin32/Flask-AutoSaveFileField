@@ -1,5 +1,6 @@
-Set and forget file uploads with Flask-Upload.
---
+Flask-AutoSaveFileField - Set and forget file uploads in Flask
+----
+
 Requirements: Flask-Uploads, Flask-WTF
 
 1. File is saved automatically without any work to you upload set.
