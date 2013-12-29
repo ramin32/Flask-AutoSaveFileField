@@ -1,4 +1,5 @@
 Set and forget file uploads with Flask-Upload.
+--
 Requirements: Flask-Uploads, Flask-WTF
 
 1. File is saved automatically without any work to you upload set.
@@ -6,6 +7,19 @@ Requirements: Flask-Uploads, Flask-WTF
 2. Prepends a link to the uploaded file right before the file input widget with the 'file-url' css class.
 
 
-from flaskext.uploads import UploadSet, DOCUMENTS, configure_uploads
+```
 documents = UploadSet('documents', DOCUMENTS)
-budget_upload = AutoSaveFileField(upload_set=documents)
+
+class MyForm(Form):
+    name = TextField()
+    budget_upload = AutoSaveFileField(upload_set=documents)
+    
+    
+@app.route('/my_view', methods=['POST'])
+def my_view():
+    form = MyForm()
+    obj = MyModel()
+    if form.validate_on_submit():
+        form.populate_obj(obj)
+
+```
